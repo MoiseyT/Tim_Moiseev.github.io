@@ -111,7 +111,7 @@ img {
   left: 0;
   z-index: var(--z-fixed);
   background-color: #fff;
-  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  box-shadow: 0 1px 4px rgba(119, 117, 158, 0.15);
 }
 
 /*===== NAV =====*/
@@ -217,7 +217,7 @@ img {
   fill: var(--first-color);
 }
 .home__blob-img {
-  width: 360px;
+  width: 460px;
 }
 
 /*BUTTONS*/

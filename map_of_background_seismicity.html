@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Seismicity</title>
+    <style>
+        p {
+            margin-bottom: 20px;
+            /* Steps between lines */
+        }
+    </style>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Tim</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="index.html#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
+        <!--===== Project information =====-->
+        <section class="information section" id="information">
+            <h2 class="section-title">Map of background seismicity</h2>
+
+            <div class="contact__container bd-grid">
+
+                <div>
+                    <p>The aim of the project was to develop a map of background seismicity domains that will be used as
+                        input data in General Seismic Regionalizing (GSR) map development.</p>
+                    <p>Colleagues decided that background seismicity depends on a few parameters:</p>
+                    <li> Earth’s gravity anomaly;</li>
+                    <li> heat flow;</li>
+                    <li> topography range;</li>
+                    <li> active faults;</li>
+                    <li> seismic events with magnitude from 3 to 5.5.</li>
+                    <div style="height: 20px;"></div>
+                    <p>1) The map of Earth’s gravity anomaly created by kriging interpolation of <a
+                            href="https://bgi.obs-mip.fr/data-products/grids-and-models/wgm2012-global-model/"
+                            target="_blank">Free-air gravity anomaly ascii data.</a></p>
+                    <img src="assets/img/Seiscmicity/1.JPG">
+                    <p>2) The map of heat flow also interpolated by inverse distance weighted (IDW) method from points
+                        of <a
+                            href="https://www.datapages.com/gis-map-publishing-program/gis-open-files/global-framework/global-heat-flow-database"
+                            target="_blank">Global Heat Flow Database.</a>
+                        Unfortunately, there are not
+                        so many points in Russia (especially in Siberia), that does not allow to use kriging or other
+                        more accurate methods.</p>
+                    <img src="assets/img/Seiscmicity/2.JPG">
+                    <p>3) The map of topography range. I used <a
+                            href="https://www.datapages.com/gis-map-publishing-program/gis-open-files/global-framework/global-heat-flow-database"
+                            target="_blank">GTOPO30 of USGS</a>
+                        for a basemap and applied
+                        Focal statistics
+                        tool with circle neighbourhood and "range" as a statistics type to obtain Earth's surface
+                        amplitude in each circle</p>
+                    <img src="assets/img/Seiscmicity/3.JPG">
+                    <p>
+                        4) The map of active faults density created on <a
+                            href="https://www.researchgate.net/publication/364237981_The_Active_Faults_of_Eurasia_Database_AFEAD_the_ontology_and_design_behind_the_continental-scale_dataset"
+                            target="_blank">Active faults of Eurasia database</a> by Line density tool
+                    </p>
+                    <img src="assets/img/Seiscmicity/4.JPG">
+                    <p>
+                        5) The map of seismic events density with magnitude from 3 to 5.5, created by Point density
+                        tool. Events with higher magnitude should be considered in other processing.
+                    </p>
+                    <img src="assets/img/Seiscmicity/5.JPG">
+                    <p>
+                        After obtaining and analysing maps, I used Iso Cluster Unsupervised Classification script,
+                        varying:
+                    </p>
+
+                    <li> the number of classes;</li>
+                    <li> minimum class size;</li>
+                    <li> and sample interval.</li>
+                    <div style="height: 20px;"></div>
+                    <p>
+                        As a result, we received a map of 6 classes:
+                    </p>
+                    <img src="assets/img/Seiscmicity/6.png">
+                    <p>
+                        And of 10 classes:
+                    </p>
+                    <img src="assets/img/Seiscmicity/7.png">
+                    <p>
+                        As we can see, plain territories such as Russian Plain and West Siberian Plain, are represented
+                        mostly by two classes differed due to gravity anomaly, while mountain areas such as Urals,
+                        Altai, Sayan, Caucasus, Cherskiy Range and all of the Far East close to Pasific Belt are more
+                        speckled due to consisting of more classes.
+                        In this case, more classes are not always better.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+</body>
+
+</html>

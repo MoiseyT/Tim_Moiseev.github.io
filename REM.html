@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Seismicity</title>
+    <style>
+        p {
+            margin-bottom: 20px;
+            /* Steps between lines */
+        }
+    </style>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Tim</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="index.html#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
+        <!--===== Project information =====-->
+        <section class="information section" id="information">
+            <h2 class="section-title">Relative elevation model (REM) and Google Earth Engine</h2>
+
+            <div class="contact__container bd-grid">
+
+                <div>
+                    <p>In this tutorial you can learn, how convert a digital elevation model (DEM) along the Kamchatka
+                        river into a
+                        relative elevation model (REM) using Google Earth Engine. This manual includes imagery
+                        processing and interpolation with Inverse Distance Weighted (IDW) method. The guide was inspired
+                        <a href="https://bgi.obs-mip.fr/data-products/grids-and-models/wgm2012-global-model/"
+                            target="_blank">by Daniel Coe, who made it for QGIS.</a>
+                    </p>
+                    <p>The example dataset includes an ArcticDEM (digital terrain model) the Kamchatka River valley in
+                        Kamchatka peninsula and polyline shp-layer (Kamchatka channel) from OSM (OpenStreetMap). You can
+                        do the project in the Google Earth Engine, except for one step.
+                        This step may be easier to make in QGIS, ArcGIS etc.</p>
+                    <p>
+                        REM (Relative elevation model) is used in observation of terraces, floodplains, oxbow lakes etc.
+                        You can read more about REMs by this <a
+                            href="https://storymaps.arcgis.com/stories/19b6bfe0c3aa454c853bd6d9b7228adf"
+                            target="_blank">link.</a> Usially, specialists operate the LiDAR imagery, but
+                        it requires financial costs. However, even without LiDAR imagery, we can get a good result using
+                        open data. SRTM is useless for this purpose due to low spatial resolution (~30 meters), but
+                        ArcticDEM fits well (~2 meters).
+                    </p>
+                    <p>
+                        First of all, we should register account in Google Earth Engine. Next we load the floodplain
+                        contours of the Kamchatka River and the layer with points along the channel (chainwaterways) to
+                        the project. We cheated a little bit and preprocessed the channel line in QGIS - we splited the
+                        line into points with equal interval of 80 m (this is the approximate average width of the
+                        Kamchatka river channel).
+                    </p>ы
+                    <img src="assets/img/REM/1.JPG">
+                    <p>
+                        In the next step, we add and clip raster from the Google Earth Engine database along the
+                        boundaries of the Kamchatka River floodplain and load it. It is made to reduce cloud
+                        computation. Thereby, the area includes the landforms of Kamchatka valley (floodplain, terraces,
+                        etc). Let's look at the result:
+                    </p>
+                    <img src="assets/img/REM/2.JPG">
+
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>
