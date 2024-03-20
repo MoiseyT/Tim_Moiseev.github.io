@@ -73,8 +73,9 @@
                         the project. We cheated a little bit and preprocessed the channel line in QGIS - we splited the
                         line into points with equal interval of 80 m (this is the approximate average width of the
                         Kamchatka river channel).
-                    </p>ы
+                    </p>
                     <img src="assets/img/REM/1.JPG">
+                    <div style="height: 20px;"></div>
                     <p>
                         In the next step, we add and clip raster from the Google Earth Engine database along the
                         boundaries of the Kamchatka River floodplain and load it. It is made to reduce cloud
@@ -82,7 +83,49 @@
                         etc). Let's look at the result:
                     </p>
                     <img src="assets/img/REM/2.JPG">
+                    <div style="height: 20px;"></div>
+                    <img src="assets/img/REM/3.JPG">
+                    <i>ArcticDEMs clipping by floodplain Kamchatka river</i>
+                    <div style="height: 20px;"></div>
+                    <p>
+                        Let's add elevation values to the point layer (we want know the altitude values in each point).
+                        For this purpose we convert the ArcticDEM image to imageCollection and use getRegion() function
+                        to add the elevation values from the image. Next, we modify the list to FeatureCollection and
+                        upload the file to Google Drive for further processing.
+                    </p>
+                    <img src="assets/img/REM/4.JPG">
+                    <div style="height: 20px;"></div>
+                    <p>
 
+                        Next we remove some points that have no elevation values as well as negative values. We did this
+                        in QGIS. It can probably be done in Google Earth Engine as well. After processing points, we
+                        uploaded the file to our project.
+                    </p>
+                    <img src="assets/img/REM/5.JPG">
+                    <div style="height: 20px;"></div>
+                    <p>
+                        We calculate the mean and standard deviation to interpolate our points with IDW method.
+                    </p>
+                    <img src="assets/img/REM/6.JPG">
+                    <div style="height: 20px;"></div>
+                    <p>
+                        On the next step we subtract InterpolatedElev from the image with elevation that we loaded
+                        previously (ArcticDEM image). Let's add a palette for amazing visualization.
+                    </p>
+                    <img src="assets/img/REM/7.JPG">
+                    <div style="height: 20px;"></div>
+                    <p>
+                        Finally, we obtain a REM raster with elevation relative to the Kamchatka riverbed. Also, we can
+                        download the raster to the desktop or cloud (e.g. Google Drive).
+                    </p>
+                    <img src="assets/img/REM/8.JPG">
+                    <i>REM of Kamchatka river valley</i>
+                    <div style="height: 20px;"></div>
+                    <p>
+                        ArcticDEM considers tree heights which can distort the result. Nevertheless, ArcticDEM is in
+                        open access, unlike Lidar imagery. Therefore, we got a satisfactory result, which is good fit
+                        for environmental science projects. Also we can process larger dataset then using QGIS.
+                    </p>
                 </div>
             </div>
         </section>
