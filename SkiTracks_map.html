@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Interactive map of cross-country ski tracks</title>
+    <style>
+        p {
+            margin-bottom: 20px;
+            /* Steps between lines */
+        }
+    </style>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Tim</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="index.html#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
+        <!--===== Project information =====-->
+        <section class="information section" id="information">
+            <h2 class="section-title">Interactive map of cross-country ski tracks</h2>
+
+            <div class="contact__container bd-grid">
+
+                <div>
+                    <p>Cross country ski is considered one of the most popular sports in Russia, along with football and
+                        running. However, until now, there was no GIS project in Russia that could help find a suitable
+                        route for this beautiful winter sport. Link to the GIS project <a
+                            href="https://www.skisport.ru/ski-trail-map/" target="_blank">"Russia's cross-country ski
+                            trails"</a></p>
+                    </p>
+                    <p><b><i>Conceptual model</i></b></p>
+                    <p>
+                        First of all I decided to look at existing projects. There are great projects in Switzerland,
+                        Norway, where you can find the information you need about the cross country ski tracks, see the
+                        difficulty of the track, for which style the track exists, and also find out when the last time
+                        a ratrak was on the track.
+                    </p>
+                    <p>
+                        Realizing that not having enough funding would be difficult to do something like this, I decided
+                        to reduce the task a bit. That is, I did not add a detailed description of the track, only a
+                        link to the club that supports the track.
+                    </p>
+                    <p>
+                        So, I decided to write to one of the most popular sites about ski racing in Russia - "Ski
+                        Sport". Together with the editorial team, we made a conceptual plan of the GIS project and
+                        decided on a table of attributes. It was decided that the complexity of the tracks would be
+                        highlighted by color (red - hard track, blue - easy track).
+                    </p>
+                    <p><b><i>Project realization</i></b></p>
+                    <p>
+                        We decided to use the open source library Leaflet as the basis. OSM is used as the base layer.
+                        The hardest part was to collect track data and some track information. At the moment, the map
+                        contains about 500 tracks of ski tracks. More than 90% of them were compiled by me on the basis
+                        of data obtained from the Internet, Strava and letters of stakeholders - fans of ski racing from
+                        all around Russia. It was great to see that people were willing to come to the help and sent all
+                        kinds of information about their "home" track. Only thanks to them was it possible to create
+                        this product.
+                    </p>
+                    <p>
+                        A general view of the map is shown below:
+                    </p>
+                    <img src="assets/img/Skimap/1.JPG">
+                    <div style="height: 20px;"></div>
+                    <p>
+                        On the top right of the map you can choose which machines are used to prepare the track - ratrak
+                        or snowmobile.
+                        Also by clicking on each track or marker you can find information about the name, length,
+                        elevation, type of track preparation and a link to the track's website.
+                    </p>
+                    <img src="assets/img/Skimap/2.png">
+                    <div style="height: 20px;"></div>
+                    <p>
+                        Thus, this is the first project that has integrated Russian cross country ski tracks into a
+                        single layer. We are very happy that this map is used by many Russians and hope that we can
+                        improve it.
+                    </p>
+                    <p>
+                        In addition, I want to share with you a wonderful plugin and a map that I created based on this
+                        plugin also using Leaflet. <a href="https://skimsu.ru/?action=content&section=tracks&sub=bgazon"
+                            target="_blank">Link
+                            to the map</a>
+                    </p>
+                    <img src="assets/img/Skimap/3.png">
+                </div>
+            </div>
+        </section>
+
+</body>
+
+</html>
